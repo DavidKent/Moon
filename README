@@ -1,0 +1,30 @@
+Fairly basic implementation, I made this because most other static-file-servers for Nodejs are way overbloated, i.e. updating
+every time a change is made. This is uneccesary unless you are dealing with a CMS or are going to be constantly changing html
+inside of documents. You must have some knowledge of nodejs to implement this, since I didn't really put much effort into packaging
+it.
+
+usage:
+
+function walk = require('walk');
+function moon = require('./moon.js');
+
+/*
+moon.js will read from client/static folder by default, my setup is
+    PROJECT_FOLDER
+        client
+            static
+                [files]
+        server
+            utils
+                [moon]
+            node.exe
+        run.cmd
+*/
+
+var requestFromClient = function(request, result) {
+    result.end(moon.getPage('/register.html').toString());    
+}
+        
+    
+        
+        
